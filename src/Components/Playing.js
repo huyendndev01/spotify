@@ -1,18 +1,20 @@
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import { useDispatch, useSelector } from "react-redux";
 import "../App.css";
-import { useContext } from "react";
-import { Songs } from "../Context/SongContext";
+import { getSongById } from "../redux/Slice/songSlice";
 
 const Playing = () => {
-  const { song, handleSetSong } = useContext(Songs);
+  const dispath = useDispatch();
+  const { song } = useSelector((state) => state.song);
 
+  console.log(song);
   const pre = () => {
-    handleSetSong(song.id - 1);
+    dispath(getSongById(song.id - 1));
   };
 
   const next = () => {
-    handleSetSong(song.id + 1);
+    dispath(getSongById(song.id + 1));
   };
   return (
     <div className=" bg-gray-900 h-[100px]">

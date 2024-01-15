@@ -1,8 +1,13 @@
-import { useContext } from "react";
-import { Songs } from "../Context/SongContext";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getSongById } from "../redux/Slice/songSlice";
 
 const DetailSongs = () => {
-  const { song } = useContext(Songs);
+  const dispath = useDispatch();
+  const song = useSelector((state) => state.song.song);
+  useEffect(() => {
+    dispath(getSongById(0));
+  }, []);
   return (
     <div className="col-span-1 p-3 h-48">
       <h2 className="font-bold text-[#38b5ea] text-center">Now playing</h2>
