@@ -1,13 +1,8 @@
-import { useEffect, useState } from "react";
 import "./App.css";
 import DetailSongs from "./Components/DetailSongs";
 import ListSongs from "./Components/ListSongs";
 import Navbar from "./Components/Navbar";
 import Playing from "./Components/Playing";
-import { Songs } from "./Context/SongContext";
-import Data from "./data/songs.json";
-import { useSelector, useDispatch } from "react-redux";
-import { getListSongs } from "./redux/Slice/songsSlice";
 
 function App() {
   return (
